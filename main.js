@@ -87,6 +87,14 @@ function render() {
    	cube.rotation.y -= delta;
    	particleSystem.rotation.y += delta
 
+   	var particleCount = smokeParticles.vertices.length;
+   	while(particleCount--) {
+   		particle.y = Math.random() * 16;
+   		particle.x = Math.random() * 32 - 16;
+   		particle.z = Math.random() * 32 - 16;
+   	}
+   	smokeParticles.__dirtyVertices = true;
+
 	requestAnimationFrame(render);
 
 	renderer.render(scene, camera);
